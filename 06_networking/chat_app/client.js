@@ -38,16 +38,15 @@ const socket = net.createConnection({port: 3008, host: '127.0.0.1'}, async () =>
 
 
     socket.on('data', async data => {
+        console.log();
+        await moveCursor(0, -1);
+        await clearLine(0);
+
 	if (data.toString('utf-8').substring(0, 2) === 'id') {
 	    id = data.toString('utf-8').substring(3);
-
 	    console.log(`Your id is ${id}!\n`);
 	}
 	else {
-            console.log();
-            await moveCursor(0, -1);
-            await clearLine(0);
-    
             console.log(data.toString('utf-8'));
 	}
 	
