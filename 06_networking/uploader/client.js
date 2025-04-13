@@ -7,13 +7,19 @@ port = 5050;
 const socket = net.createConnection({ host, port }, async () => {
     const filePath = 'text.txt';
     const fileHandler = await fs.open(filePath, 'r');
-    const fileStream = fileHandler.createReadStream();
+    const fileReadStream = fileHandler.createReadStream();
 
-    fileStream.on('data', data => {
-        socket.write(data);
+    fileReadStream.on('data', data => {
+        if(!socket.write(data)) {
+            fileReadStream.pause();
+        }
     });
 
-    fileStream.on('end', () => {
+    socket.on('drain', () => {
+        fileReadStream.resume();
+    });
+
+    fileReadStream.on('end', () => {
         console.log('The file was uploaded successfully!');
         socket.end();
     });
