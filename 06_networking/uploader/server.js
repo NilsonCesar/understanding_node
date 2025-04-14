@@ -12,7 +12,11 @@ server.on('connection', (socket) => {
     socket.on('data', async data => {
         if (!fileHandler) {
             socket.pause()
-            fileHandler = await fs.open(`storage/test.txt`, 'w');
+
+            const indexDivider = data.indexOf('-------');
+            const fileName = data.subarray(10, indexDivider).toString('utf-8');
+
+            fileHandler = await fs.open(`storage/${fileName}`, 'w');
             fileWriteStream = fileHandler.createWriteStream();
 
             // we must pause the read (!) stream
