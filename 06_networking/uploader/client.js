@@ -2,8 +2,8 @@ const net = require('net');
 const fs = require('fs/promises');
 const path = require('path');
 
-host = '::1';
-port = 5050;
+const host = '::1';
+const port = 5050;
 
 const clearLine = dir => {
     return new Promise((resolve, reject) => {
