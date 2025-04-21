@@ -12,16 +12,22 @@ const request = http.request({
     method: 'POST',
     path: '/create-post',
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'name': 'Bob'
     }
 });
 
 request.on('response', (response) => {
+    console.log(response.statusCode);
+    console.log(response.headers);
+    
+    response.on('data', chunk => {
+        console.log(chunk.toString());
+    });
 
+    response.on('end', () => {
+        console.log('No more data in response');
+    });
 });
 
-request.write(JSON.stringify({message: 'Hi there!'}));
-request.write(JSON.stringify({message: 'I need improve my math!'}));
-request.write(JSON.stringify({message: 'Still learning node!'}));
-
-request.end(JSON.stringify({message: 'This is the end of our time =('}));
+request.end(JSON.stringify({title: 'Hi there! This is a title!', body: 'Still learning node!'}));
