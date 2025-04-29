@@ -19,6 +19,30 @@ server.on('request', async (request, response) => {
     await createResponse(request, response, '/', 'GET', 'text/html', './public/index.html');
     await createResponse(request, response, '/styles.css', 'GET', 'text/css', './public/styles.css');
     await createResponse(request, response, '/scripts.js', 'GET', 'text/javascript', './public/scripts.js')
+	
+    if (request.url === '/login' && request.method === 'POST') {
+	response.setHeader('Content-Type', 'application/json');
+	response.statusCode = 200;
+	
+	const body = {
+	    message: 'Logging you in...',
+	};
+	
+	response.end(JSON.stringify(body));
+    }
+
+    if (request.url === '/user' && request.method === 'PUT') {
+	response.setHeader('Content-Type', 'application/json');
+	response.statusCode = 200;
+	
+	const body = {
+	    message: 'Updating your info...',
+	};
+	
+	response.end(JSON.stringify(body));
+    }
+
+
 
     console.log(request.url);
     console.log(request.method);
