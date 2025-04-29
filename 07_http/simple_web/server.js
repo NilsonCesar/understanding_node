@@ -21,28 +21,37 @@ server.on('request', async (request, response) => {
     await createResponse(request, response, '/scripts.js', 'GET', 'text/javascript', './public/scripts.js')
 	
     if (request.url === '/login' && request.method === 'POST') {
-	response.setHeader('Content-Type', 'application/json');
-	response.statusCode = 200;
-	
-	const body = {
-	    message: 'Logging you in...',
-	};
-	
-	response.end(JSON.stringify(body));
+        response.setHeader('Content-Type', 'application/json');
+        response.statusCode = 200;
+        
+        const body = {
+            message: 'Logging you in...',
+        };
+        
+        response.end(JSON.stringify(body));
     }
 
     if (request.url === '/user' && request.method === 'PUT') {
-	response.setHeader('Content-Type', 'application/json');
-	response.statusCode = 200;
+        response.setHeader('Content-Type', 'application/json');
+        response.statusCode = 200;
 	
-	const body = {
-	    message: 'Updating your info...',
-	};
-	
-	response.end(JSON.stringify(body));
+        const body = {
+            message: 'Updating your info...',
+        };
+        
+        response.end(JSON.stringify(body));
     }
 
-
+    if (request.url === '/upload' && request.method === 'PUT') {
+        const fileHandler = await fs.open('./storage/image.jpg', 'w');
+        const fileStream = fileHandler.createWriteStream();
+        request.pipe(fileStream);
+        request.on('end', () => {
+            response.end(JSON.stringify({
+                message: 'File was uploaded successfully'
+            }));
+        });
+    }
 
     console.log(request.url);
     console.log(request.method);
