@@ -1,4 +1,4 @@
-const Capuccino = require('./capuccino');
+const Capuccino = require('../capuccino');
 const PORT = 4060;
 
 const server = new Capuccino();
