@@ -34,7 +34,34 @@ const PORT = 8000;
 const server = new Capuccino();
 
 // ----- Files Routes ----- //
+
+server.route('post', '/api/login', (req, res) => {
+  let body = '';
+  req.on('data', chunk => {
+    body += chunk.toString();
+  });
+
+  req.on('end', () => {
+    body = JSON.parse(body);
+    
+    const username = body.username;
+    const password = body.password;
+    const user = USERS.find(user => user.username === username);
+    
+    if (user && user.password === password) {
+      res.status(200).json({ message: 'logged in successfully' });
+    } else {
+      res.status(401).json({ error: 'Invalid user or password invalid.' })
+    }
+  });
+});
+
+// Send the the list of all post that we have
 server.route('get', '/', (req, res) => {
+  res.sendFile('./public/index.html', 'text/html');
+});
+
+server.route('get', '/login', (req, res) => {
   res.sendFile('./public/index.html', 'text/html');
 });
 
