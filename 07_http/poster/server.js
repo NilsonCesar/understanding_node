@@ -1,5 +1,9 @@
 const Capuccino = require('../capuccino');
 
+// A sample object in this array would like:
+// { userId: number, token: string }
+const SESSIONS = []
+
 const USERS = [
   {
     id: 1,
@@ -35,6 +39,7 @@ const server = new Capuccino();
 
 // ----- Files Routes ----- //
 
+// Log a user in and give them a token
 server.route('post', '/api/login', (req, res) => {
   let body = '';
   req.on('data', chunk => {
@@ -49,12 +54,21 @@ server.route('post', '/api/login', (req, res) => {
     const user = USERS.find(user => user.username === username);
     
     if (user && user.password === password) {
+      const token = (Math.floor(Math.random() * 10000000000)).toString();
+      SESSIONS.push({ userId: user.id, token: token });
+      res.setHeader("Set-Cookie", `token=${token}; Path=/;`);
       res.status(200).json({ message: 'logged in successfully' });
     } else {
       res.status(401).json({ error: 'Invalid user or password invalid.' })
     }
   });
 });
+
+server.route('delete', '/api/logout', (req, res) => {});
+
+server.route('put', '/api/update', (req, res) => {});
+
+server.route('post', '/api/posts', (req, res) => {});
 
 // Send the the list of all post that we have
 server.route('get', '/', (req, res) => {
@@ -63,6 +77,21 @@ server.route('get', '/', (req, res) => {
 
 server.route('get', '/login', (req, res) => {
   res.sendFile('./public/index.html', 'text/html');
+});
+
+server.route('get', '/api/user', (req, res) => {
+  const token = req.headers.cookie;
+  if (!token) res.status(401).json({ error: 'Unauthorized' });
+
+  const tokenArr = token.split('=');
+  const tokenStr = tokenArr[1];
+  const session = SESSIONS.find(session => session.token === tokenStr);
+
+  if (session) {
+    const user = USERS.find(user => user.id === session.userId);
+    res.json({ username: user.username, name: user.name });
+  }
+  else res.status(401).json({ error: 'Unauthorized' }); 
 });
 
 server.route('get', '/styles.css', (req, res) => {
