@@ -37,6 +37,16 @@ const POSTS = [
 const PORT = 8000;
 const server = new Capuccino();
 
+server.beforeEach((req, res, next) => {
+  console.log("Middleware 1!");
+  next();
+});
+
+server.beforeEach((req, res, next) => {
+  console.log("Middleware 2!");
+  next();
+});
+
 // ----- Files Routes ----- //
 
 // Log a user in and give them a token
@@ -81,7 +91,7 @@ server.route('get', '/login', (req, res) => {
 
 server.route('get', '/api/user', (req, res) => {
   const token = req.headers.cookie;
-  if (!token) res.status(401).json({ error: 'Unauthorized' });
+  if (!token) return res.status(401).json({ error: 'Unauthorized' });
 
   const tokenArr = token.split('=');
   const tokenStr = tokenArr[1];
