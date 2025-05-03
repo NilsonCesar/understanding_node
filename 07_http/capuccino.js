@@ -5,6 +5,7 @@ class Capuccino {
     constructor() {
         this.server = http.createServer();
         this.routes = {};
+        this.middleware = [];
 
         this.server.on('request', (req, res) => {
             res.sendFile = async (path, mime) => {
@@ -24,14 +25,30 @@ class Capuccino {
                 res.setHeader('Content-Type', 'application/json');
                 res.end(JSON.stringify(json));
             }
-
-            const cb = this.routes[req.method.toLocaleLowerCase() + ' ' + req.url.toLocaleLowerCase()];
-            if (cb) cb(req, res);
-            else res.status(404).json({ error: `Cannot ${req.method} ${req.url}` });
+            
+            this.runMiddleware(req, res);
         })
     }
 
     listen = (port, cb) => this.server.listen(port, cb);
+
+    beforeEach = (cb) => {
+        this.middleware.push(cb);
+    }
+
+    runMiddleware = (req, res) => {
+        if (this.middleware.length) {
+            const n = this.middleware.length;
+            let i = n - 1;
+            let result = this.middleware[i](req, res, () => {
+                const cb = this.routes[req.method.toLocaleLowerCase() + ' ' + req.url.toLocaleLowerCase()];
+                if (cb) cb(req, res);
+                else return res.status(404).json({ error: `Cannot ${req.method} ${req.url}` });
+            });
+
+            while (i > 0) result = this.middleware[--i](req, res, () => result);
+        }
+    }
 
     route = (method, path, cb) => 
         this.routes[method.toLocaleLowerCase() + ' ' + path.toLocaleLowerCase()] = cb;
