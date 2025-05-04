@@ -26,7 +26,7 @@ class Capuccino {
                 res.end(JSON.stringify(json));
             }
             
-            this.runMiddleware(req, res);
+            this.runMiddleware(req, res, this.middleware, 0);
         })
     }
 
@@ -36,18 +36,13 @@ class Capuccino {
         this.middleware.push(cb);
     }
 
-    runMiddleware = (req, res) => {
-        if (this.middleware.length) {
-            const n = this.middleware.length;
-            let i = n - 1;
-            let result = this.middleware[i](req, res, () => {
-                const cb = this.routes[req.method.toLocaleLowerCase() + ' ' + req.url.toLocaleLowerCase()];
-                if (cb) cb(req, res);
-                else return res.status(404).json({ error: `Cannot ${req.method} ${req.url}` });
-            });
-
-            while (i > 0) result = this.middleware[--i](req, res, () => result);
+    runMiddleware = (req, res, middleware, i) => {
+        if (i === middleware.length) {
+            const cb = this.routes[req.method.toLocaleLowerCase() + ' ' + req.url.toLocaleLowerCase()];
+            if (cb) return cb(req, res);
+            else return res.status(404).json({ error: `Cannot ${req.method} ${req.url}` });
         }
+        return middleware[i](req, res, () => this.runMiddleware(req, res, middleware, i + 1));
     }
 
     route = (method, path, cb) => 
