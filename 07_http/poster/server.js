@@ -38,40 +38,68 @@ const PORT = 8000;
 const server = new Capuccino();
 
 server.beforeEach((req, res, next) => {
-  console.log("Middleware 1!");
-  next();
+  const routesToAuthenticate = ['GET /api/user', "PUT /api/user", "POST /api/posts", "DELETE /api/logout"];
+
+  if (routesToAuthenticate.indexOf(req.method + ' ' + req.url) === -1) return next();
+  
+  const token = req.headers.cookie;
+  if (!token) return res.status(401).json({ error: 'Unauthorized' });
+
+  const tokenArr = token.split('=');
+  const tokenStr = tokenArr[1];
+  const session = SESSIONS.find(session => session.token === tokenStr);
+
+  if (session) {
+    req.userId = session.userId;
+    return next();
+  }
+  else res.status(401).json({ error: 'Unauthorized' }); 
+
 });
 
 server.beforeEach((req, res, next) => {
-  console.log("Middleware 2!");
-  next();
+  // To small applications. When size(body) <= highWaterMark
+  if (req.headers['content-type'] === 'application/json') {
+    let body = '';
+    req.on('data', chunk => {
+      body += chunk.toString();
+    });
+
+    req.on('end', () => {
+      body = JSON.parse(body);
+      req.body = body;
+      return next();
+    });
+  } else {
+    next();
+  }
+});
+
+server.beforeEach((req, res, next) => {
+  routes = ['/', '/login', '/profile', '/new-post'];
+  
+  if (routes.indexOf(req.url) === -1 || req.method !== 'GET') return next();
+
+  return res.status(200).sendFile('./public/index.html', 'text/html');
 });
 
 // ----- Files Routes ----- //
 
 // Log a user in and give them a token
 server.route('post', '/api/login', (req, res) => {
-  let body = '';
-  req.on('data', chunk => {
-    body += chunk.toString();
-  });
+  const username = req.body.username;
+  const password = req.body.password;
+  const user = USERS.find(user => user.username === username);
+  
+  if (user && user.password === password) {
+    const token = (Math.floor(Math.random() * 10000000000)).toString();
+    SESSIONS.push({ userId: user.id, token: token });
+    res.setHeader("Set-Cookie", `token=${token}; Path=/;`);
+    res.status(200).json({ message: 'logged in successfully' });
+  } else {
+    res.status(401).json({ error: 'Invalid user or password invalid.' })
+  }
 
-  req.on('end', () => {
-    body = JSON.parse(body);
-    
-    const username = body.username;
-    const password = body.password;
-    const user = USERS.find(user => user.username === username);
-    
-    if (user && user.password === password) {
-      const token = (Math.floor(Math.random() * 10000000000)).toString();
-      SESSIONS.push({ userId: user.id, token: token });
-      res.setHeader("Set-Cookie", `token=${token}; Path=/;`);
-      res.status(200).json({ message: 'logged in successfully' });
-    } else {
-      res.status(401).json({ error: 'Invalid user or password invalid.' })
-    }
-  });
 });
 
 server.route('delete', '/api/logout', (req, res) => {});
@@ -90,18 +118,8 @@ server.route('get', '/login', (req, res) => {
 });
 
 server.route('get', '/api/user', (req, res) => {
-  const token = req.headers.cookie;
-  if (!token) return res.status(401).json({ error: 'Unauthorized' });
-
-  const tokenArr = token.split('=');
-  const tokenStr = tokenArr[1];
-  const session = SESSIONS.find(session => session.token === tokenStr);
-
-  if (session) {
-    const user = USERS.find(user => user.id === session.userId);
-    res.json({ username: user.username, name: user.name });
-  }
-  else res.status(401).json({ error: 'Unauthorized' }); 
+  const user = USERS.find(user => user.id === req.userId);
+  res.json({ username: user.username, name: user.name });
 });
 
 server.route('get', '/styles.css', (req, res) => {
