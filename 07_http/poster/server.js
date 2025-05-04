@@ -102,11 +102,36 @@ server.route('post', '/api/login', (req, res) => {
 
 });
 
-server.route('delete', '/api/logout', (req, res) => {});
+server.route('post', '/api/posts', (req, res) => {
+  const title = req.body.title;
+  const body = req.body.body;
+  const post = { id: POSTS.length + 1, title, body, userId: req.userId };
+  POSTS.push(post);
+  res.status(201).json(post);
+});
 
-server.route('put', '/api/update', (req, res) => {});
+server.route('put', '/api/user', (req, res) => {
+  const name = req.body.name;
+  const password = req.body.password;
+  const username = req.body.username;
+  const user = USERS.find(user => user.id === req.userId);
 
-server.route('post', '/api/posts', (req, res) => {});
+  if (name) user.name = name;
+  if (password) user.password = password;
+  if (username) user.username = username;
+
+  res.status(200).json({ name, username, password_status: password ? 'changed' : 'not changed' });
+});
+
+server.route('delete', '/api/logout', (req, res) => {
+  const sessionIndex = SESSIONS.findIndex(session => session.userId === req.userId);
+  if (sessionIndex >= 0) {
+    SESSIONS.splice(sessionIndex, 1);
+  }
+
+  res.setHeader('Set-Cookie', 'token=deleted; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT');
+  res.status(200).json({ message: 'Logged out successfully' })
+});
 
 // Send the the list of all post that we have
 server.route('get', '/', (req, res) => {
@@ -132,11 +157,15 @@ server.route('get', '/scripts.js', (req, res) => {
 
 // ----- Json Routes ----- //
 server.route('get', '/api/posts', (req, res) => {
-  const posts = POSTS.map(post => {
+  const posts = [];
+
+  for (let i = POSTS.length - 1; i >= 0; i--) {
+    let post = { ...POSTS[i] };
     const user = USERS.find(user => user.id === post.userId);
     post.author = user.name;
-    return post;
-  });
+    posts.push(post);
+  }
+
   res.status(200).json(posts);
 });
 
