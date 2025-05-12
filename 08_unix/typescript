@@ -1,0 +1,120 @@
+Script started on 2025-05-08 19:46:08-03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="164" LINES="24"]
+[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ myfunc
+[?2004lmyfunc: comando não encontrado
+[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ vim [K[K[K[Knvim scripts.sh 
+[?2004l[?1049h[22;0;0t[?1h=[H[2J]11;?[?2004h[?u[c[?25h[?25l[>4;2m[?1004h[?25h[?25l(B[m[H[2J[96m# ls(B[m[K
+(B[0;1m[96mmyFunc() {(B[m[K
+  (B[0;1m[96mx(B[m=[95m120(B[m[K
+  (B[0;1m[96my(B[m=[95m500(B[m[K
+  [93mecho(B[m[95m (B[m[38;5;81m$(($x(B[m[38;5;224m+(B[m[38;5;81m$y))(B[m[K
+  [93mecho(B[m[95m (B[m[38;5;81m$1(B[m[K
+(B[0;1m[96m}(B[m[K
+[K
+myFunc [93m"(B[m[95mhello world!(B[m[93m"(B[m[K
+[94m~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+(B[0;1;7mscripts.sh                                                                                                                                        1,1           Tudo]112[2 q]112[2 q[?1002h[?1006h[H[?25h[?25l[24;154H(B[m:         [H[?25h[?25l[23B[J:]112[2 q[?1002l[?1006l[?25h[?25lq[?25h[?25l[24;1H[?25h[?25l]112[2 q[?1002h[?1006h[?25h[?25l]112[2 q[?1002l[?1006l(B[m[?25h[?1l>[>4;0m[?1049l[23;0;0t[?2004l[?1004l[?25h[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ myFunc
+[?2004lmyFunc: comando não encontrado
+[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ myFuncnvim scripts.sh 
+[?2004l[?1049h[22;0;0t[?1h=[H[2J]11;?[?2004h[?u[c[?25h[?25l[>4;2m(B[m[H[2J[96m# ls(B[m[K
+(B[0;1m[96mmyFunc() {(B[m[K
+  (B[0;1m[96mx(B[m=[95m120(B[m[K
+  (B[0;1m[96my(B[m=[95m500(B[m[K
+  [93mecho(B[m[95m (B[m[38;5;81m$(($x(B[m[38;5;224m+(B[m[38;5;81m$y))(B[m[K
+  [93mecho(B[m[95m (B[m[38;5;81m$1(B[m[K
+(B[0;1m[96m}(B[m[K
+[K
+myFunc [93m"(B[m[95mhello world!(B[m[93m"(B[m[K
+[94m~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+(B[0;1;7mscripts.sh                                                                                                                                        1,1           Tudo]112[2 q]112[2 q[?1002h[?1006h[H[?25h[?25l[?1004h[?25h[?25l[24;154H(B[m~@k       [H[?25h[?25l[24;154H   [23;147H(B[0;1;7m2[21A[?25h[?25l[24;154H(B[m~@k[22A[?25h[?25l[24;154H   [23;147H(B[0;1;7m3[20A[?25h[?25l[24;154H(B[m~@k[21A[?25h[?25l[24;154H   [23;147H(B[0;1;7m4[19A[?25h[?25l[24;154H(B[m~@k[20A[?25h[?25l[24;154H   [23;147H(B[0;1;7m5[18A[?25h[?25l[24;154H(B[m~@k[19A[?25h[?25l[24;154H   [23;147H(B[0;1;7m6[17A[?25h[?25l[24;154H(B[m~@k[18A[?25h[?25l[24;154H   [2;10H(B[0;1m[96m[46m{[5B}[23;147H(B[0;1;7m7[16A[?25h[?25l[24;154H(B[m~@k[17A[?25h[?25l[24;154H   [2;10H(B[0;1m[96m{[5B}[23;147H(B[0;1;7m8,0-1[15A[?25h[?25l[24;154H(B[m~@k[16A[?25h[?25l[24;154H   [23;147H(B[0;1;7m9,1  [14A[?25h[?25l[24;154H(B[m~@k[15A[?25h[?25l[24;154H   [15A[?25h[?25l[24;154H~@k[15A[?25h[?25l[24;154H   [23;149H(B[0;1;7m2[9;2H[?25h[?25l[24;154H(B[m~@k[9;2H[?25h[?25l[24;154H   [23;149H(B[0;1;7m3[9;3H[?25h[?25l[24;154H(B[m~@k[9;3H[?25h[?25l[24;154H   [23;149H(B[0;1;7m4[9;4H[?25h[?25l[24;154H(B[m~@k[9;4H[?25h[?25l[24;154H   [23;149H(B[0;1;7m5[9;5H[?25h[?25l[24;154H(B[m~@k[9;5H[?25h[?25l[24;154H   [23;149H(B[0;1;7m6[9;6H[?25h[?25l[24;154H(B[m~@k[9;6H[?25h[?25l[24;154H   [23;149H(B[0;1;7m7[9;7H[?25h[?25l[24;154H(B[m~@k[9;7H[?25h[?25l[24;154H   [23;149H(B[0;1;7m8[9;8H[?25h[?25l[24;154H(B[m~@k[9;8H[?25h[?25l[24;154H   [23;149H(B[0;1;7m9[9;9H[?25h[?25l[24;154H(B[m~@k[9;9H[?25h[?25l[24;154H   [23;149H(B[0;1;7m10[9;10H[?25h[?25l[24;154H(B[m~@k[9;10H[?25h[?25l[24;154H   [23;150H(B[0;1;7m1[9;11H[?25h[?25l[24;154H(B[m~@k[9;11H[?25h[?25l[24;154H   [23;150H(B[0;1;7m2[9;12H[?25h[?25l[24;154H(B[m~@k[9;12H[?25h[?25l[24;154H   [23;150H(B[0;1;7m3[9;13H[?25h[?25l[24;154H(B[m~@k[9;13H[?25h[?25l[24;154H   [23;150H(B[0;1;7m4[9;14H[?25h[?25l[24;154H(B[m~@k[9;14H[?25h[?25l[24;154H   [23;150H(B[0;1;7m5[9;15H[?25h[?25l[24;154H(B[m~@k[9;15H[?25h[?25l[24;154H   [23;150H(B[0;1;7m6[9;16H[?25h[?25l[24;154H(B[m~@k[9;16H[?25h[?25l[24;154H   [23;150H(B[0;1;7m7[9;17H[?25h[?25l[24;154H(B[m~@k[9;17H[?25h[?25l[24;154H   [23;150H(B[0;1;7m8[9;18H[?25h[?25l[24;154H(B[m~@k[9;18H[?25h[?25l[24;154H   [23;150H(B[0;1;7m9[9;19H[?25h[?25l[24;154H(B[m~@k[9;19H[?25h[?25l[24;154H   [23;149H(B[0;1;7m20[9;20H[?25h[?25l[24;154H(B[m~@k[9;20H[?25h[?25l[24;154H   [23;150H(B[0;1;7m1[9;21H[?25h[?25l[24;154H(B[m~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H~@k[9;21H[?25h[?25l[24;154H   [9;21H[?25h[?25l[24;154H:[9;21H[?25h[?25l[15B[J:]112[2 q[?1002l[?1006l[?25h[?25lq[?25h[?25l [?25h[?25l[?25h[?25lw[?25h[?25l [?25h[?25l[?25h[?25lq[?25h[?25l[24;1H[?25h[?25l]112[2 q[?1002h[?1006h[?25h[?25l]112[2 q[?1002l[?1006l(B[m[?25h[?1l>[>4;0m[?1049l[23;0;0t[?2004l[?1004l[?25h[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ nvim scripts.sh [K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K [K. scripts.sh 
+[?2004l620
+hello world!
+[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ myFunc
+[?2004l620
+
+[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ ech [Ko M[Kmyvar
+[?2004lmyvar
+[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ echo myvar$myvar
+[?2004l
+[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ clear
+[?2004l[H[2J[3J[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ source[K[K[K[K[K[KmyFunc
+[?2004l620
+
+[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ clear
+[?2004l[H[2J[3J[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ nvimi [K[K[K [Km scripts.sh 
+[?2004l[?1049h[22;0;0t[?1h=[H[2J]11;?[?2004h[?u[c[?25h[?25l(B[m[H[2J[>4;2m[96m# ls(B[m[K
+(B[0;1m[96mmyFunc() {(B[m[K
+  (B[0;1m[96mx(B[m=[95m120(B[m[K
+  (B[0;1m[96my(B[m=[95m500(B[m[K
+  [93mecho(B[m[95m (B[m[38;5;81m$(($x(B[m[38;5;224m+(B[m[38;5;81m$y))(B[m[K
+  [93mecho(B[m[95m (B[m[38;5;81m$1(B[m[K
+(B[0;1m[96m}(B[m[K
+[K
+myFunc [93m"(B[m[95mhello world!(B[m[93m"(B[m[K
+[94m~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+~[K
+(B[0;1;7mscripts.sh                                                                                                                                        1,1           Tudo]112[2 q]112[2 q[?1002h[?1006h[H[?25h[?25l[?1004h[?25h[?25l[24;154H(B[m~@k       [H[?25h[?25l[24;154H   [23;147H(B[0;1;7m2[21A[?25h[?25l[24;154H(B[m~@k[22A[?25h[?25l[24;154H   [23;147H(B[0;1;7m3[20A[?25h[?25l[24;154H(B[m~@k[21A[?25h[?25l[24;154H   [23;147H(B[0;1;7m4[19A[?25h[?25l[24;154H(B[m~@k[20A[?25h[?25l[24;154H   [23;147H(B[0;1;7m5[18A[?25h[?25l[24;154H(B[m~@k[19A[?25h[?25l[24;154H   [23;147H(B[0;1;7m6[17A[?25h[?25l[24;154H(B[m~@k[18A[?25h[?25l[24;154H   [2;10H(B[0;1m[96m[46m{[5B}[23;147H(B[0;1;7m7[16A[?25h[?25l[24;154H(B[m~@k[17A[?25h[?25l[24;154H   [2;10H(B[0;1m[96m{[5B}[23;147H(B[0;1;7m8,0-1[15A[?25h[?25l[24;154H(B[m~@k[16A[?25h[?25l[24;154H   [23;147H(B[0;1;7m9,1  [14A[?25h[?25l[24;154H(B[m~@k[15A[?25h[?25l[24;154H   [15A[?25h[?25l[24;154H~@k[15A[?25h[?25l[24;154H   [15A[?25h[?25l[24;154H~@k[15A[?25h[?25l[24;154H   [15A[?25h[?25l[24;154H~@k[15A[?25h[?25l[24;154H   [15A[?25h[?25l[24;154H~@k[15A[?25h[?25l[24;154H   [15A[?25h[?25l[24;154H~@k[15A[?25h[?25l[24;154H   [15A[?25h[?25l[24;154H~@k[15A[?25h[?25l[24;154H   [23;147H(B[0;1;7m8,0-1[15A[?25h[?25l[24;154H(B[m~@k[16A[?25h[?25l[24;154H   [2;10H(B[0;1m[96m[46m{[5B}[23;147H(B[0;1;7m7,1  [16A[?25h[?25l[24;154H(B[m~@k[17A[?25h[?25l[24;154H   [2;10H(B[0;1m[96m{[5B}[23;147H(B[0;1;7m6[17A[?25h[?25l[24;154H(B[m~@k[18A[?25h[?25l[24;154H   [23;147H(B[0;1;7m5[18A[?25h[?25l[24;154H(B[m~@k[19A[?25h[?25l[24;154H   [23;147H(B[0;1;7m4[19A[?25h[?25l[24;154H(B[m~@k[20A[?25h[?25l[24;154H   [23;147H(B[0;1;7m3[20A[?25h[?25l[24;154H(B[m~@k[21A[?25h[?25l[24;154H   [23;147H(B[0;1;7m2[21A[?25h[?25l[24;154H(B[m~@k[22A[?25h[?25l[24;154H   [23;147H(B[0;1;7m1[H[?25h[?25l[24;154H(B[m~@k[H[?25h[?25l[24;154H   [H[?25h[?25l[24;154H~@k[H[?25h[?25l[24;154H   [H[?25h[?25l[24;154H~@k[H[?25h[?25l[24;154H   [H[?25h[?25l[24;154H~@k[H[?25h[?25l[24;154H   [H[?25h[?25l[24;154Hj[H[?25h[?25l[24;154H [23;147H(B[0;1;7m2[21A[?25h[?25l[24;154H(B[mi[22A[?25h[?25l[24;154H ]112[6 q[22A[?25h[?25l[22B(B[0;1m-- INSERÇÃO --(B[m[K[?25h[?25l[22A[?25h[?25l[3;22r[3;1H[L[r[2;1H[10X
+(B[0;1m[96mmyFunc() {(B[m[K[23;12H(B[0;1;7m[+][132C3[20A[?25h[?25l[23;147H2[21A[?25h[?25l[3;22r[3;1H(B[m[L[r[3;1H[K[23;147H(B[0;1;7m3[20A[?25h[?25l[23;147H2[21A[?25h[?25l(B[ma[23;149H(B[0;1;7m2[2;2H[?25h[?25l(B[ml[23;149H(B[0;1;7m3[2;3H[?25h[?25l(B[mi[23;149H(B[0;1;7m4[2;4H[?25h[?25l(B[ms[23;149H(B[0;1;7m5[2;5H[?25h[?25l(B[m [23;149H(B[0;1;7m4[2;4H[?25h[?25l(B[ma[23;149H(B[0;1;7m5[2;5H[?25h[?25l[2;1H(B[m[93malias[23;149H(B[0;1;7m6[2;6H[?25h[?25l[23;149H7[2;7H[?25h[?25l(B[m[93m (B[0;1m[96mr[23;149H(B[0;1;7m8[2;8H[?25h[?25l(B[0;1m[96mu[23;149H(B[0;1;7m9[2;9H[?25h[?25l(B[0;1m[96mn[23;149H(B[0;1;7m10[2;10H[?25h[?25l(B[0;1m[96mp[23;150H(B[0;1;7m1[2;11H[?25h[?25l(B[m[93m=[23;150H(B[0;1;7m2[2;12H[?25h[?25l(B[m[93m'
+
+(B[m[95mmyFunc() {
+  x=
+  y=
+  echo $(($x+$y))
+  echo $1
+}
+
+myFunc "hello world!"[23;150H(B[0;1;7m3[2;13H[?25h[?25l(B[m[95mn[23;150H(B[0;1;7m4[2;14H[?25h[?25l(B[m[95md[23;150H(B[0;1;7m5[2;15H[?25h[?25l(B[m[95mo[23;150H(B[0;1;7m6[2;16H[?25h[?25l(B[m[95me[23;150H(B[0;1;7m7[2;17H[?25h[?25l(B[m[95m [23;150H(B[0;1;7m8[2;18H[?25h[?25l(B[m [23;150H(B[0;1;7m7[2;17H[?25h[?25l(B[m [23;150H(B[0;1;7m6[2;16H[?25h[?25l(B[m [23;150H(B[0;1;7m5[2;15H[?25h[?25l(B[m [23;150H(B[0;1;7m4[2;14H[?25h[?25l(B[m[95mo[23;150H(B[0;1;7m5[2;15H[?25h[?25l(B[m[95md[23;150H(B[0;1;7m6[2;16H[?25h[?25l(B[m[95me[23;150H(B[0;1;7m7[2;17H[?25h[?25l(B[m[95m [23;150H(B[0;1;7m8[2;18H[?25h[?25l(B[m[95mp[23;150H(B[0;1;7m9[2;19H[?25h[?25l(B[m[95ml[23;149H(B[0;1;7m20[2;20H[?25h[?25l(B[m[95ma[23;150H(B[0;1;7m1[2;21H[?25h[?25l(B[m[95my[23;150H(B[0;1;7m2[2;22H[?25h[?25l(B[m[95mg[23;150H(B[0;1;7m3[2;23H[?25h[?25l(B[m[95mr[23;150H(B[0;1;7m4[2;24H[?25h[?25l(B[m[95mo[23;150H(B[0;1;7m5[2;25H[?25h[?25l(B[m[95mu[23;150H(B[0;1;7m6[2;26H[?25h[?25l(B[m[95mn[23;150H(B[0;1;7m7[2;27H[?25h[?25l(B[m[95md[23;150H(B[0;1;7m8[2;28H[?25h[?25l(B[m[95m.[23;150H(B[0;1;7m9[2;29H[?25h[?25l(B[m[95mj[23;149H(B[0;1;7m30[2;30H[?25h[?25l(B[m[95ms[23;150H(B[0;1;7m1[2;31H[?25h[?25l(B[m[93m'
+
+(B[0;1m[96mmyFunc() {
+(B[m  (B[0;1m[96mx(B[m=
+  (B[0;1m[96my(B[m=
+  [93mecho(B[m[95m (B[m[38;5;81m$(($x(B[m[38;5;224m+(B[m[38;5;81m$y))
+(B[m  [93mecho(B[m[95m (B[m[38;5;81m$1
+(B[0;1m[96m}
+
+(B[mmyFunc [93m"(B[m[95mhello world!(B[m[93m"[23;150H(B[0;1;7m2[2;32H[?25h[?25l(B[m[22B[14X]112[2 q[2;32H[?25h[?25l[23;150H(B[0;1;7m1[2;31H[?25h[?25l[24;154H(B[m:[2;31H[?25h[?25l[24;154H [24;1H:]112[2 q[?1002l[?1006l[?25h[?25lw[?25h[?25lq[?25h[?25l[24;1H[?25h[?25l"scripts.sh"]112[2 q[?1002h[?1006h[?25h[?25l[C11L, 118B gravado(s)[?25h[?25l[24;1H]112[2 q[?1002l[?1006l(B[m[?25h[?1l>[>4;0m[?1049l[23;0;0t[?2004l[?1004l[?25h[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ source scripts.sh 
+[?2004l620
+hello world!
+[?2004h]0;nilsoncesar@nilsoncesar-Inspiron-3481: ~/Workspace/understanding_node/08_unix[01;32mnilsoncesar@nilsoncesar-Inspiron-3481[00m:[01;34m~/Workspace/understanding_node/08_unix[00m$ run [Kp
+[?2004l/home/nilsoncesar/.nvm/versions/node/v20.19.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+total 32
+drwxrwxr-x  2 nilsoncesar nilsoncesar  4096 mai  8 19:48 ./
+drwxrwxr-x 11 nilsoncesar nilsoncesar  4096 mai  7 19:12 ../
+-rw-rw-r--  1 nilsoncesar nilsoncesar    75 mai  7 20:22 cur.sh
+-rw-rw-r--  1 nilsoncesar nilsoncesar   398 mai  7 20:41 playground.js
+-rwxrw-r--  1 nilsoncesar nilsoncesar   118 mai  8 19:48 scripts.sh*
+-rw-rw-r--  1 nilsoncesar nil
