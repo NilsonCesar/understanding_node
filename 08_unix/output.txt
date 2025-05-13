@@ -1,0 +1,4 @@
+Hello out!
+From stdin: hi
+From stdin: hi
+From stdin: hello!!
