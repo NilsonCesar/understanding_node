@@ -1,7 +1,7 @@
 const { spawn } = require('node:child_process');
 const fs = require('node:fs');
 
-const numberFormatter = spawn('number_formatter', ['./dest.txt', '$', ',']);
+const numberFormatter = spawn('./number_formatter', ['./dest.txt', '$', ',']);
 
 numberFormatter.stdout.on('data', data => {
   console.log(data.toString());
