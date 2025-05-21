@@ -3,6 +3,12 @@ const cpeak = require('cpeak');
 const server = new cpeak();
 const PORT = 5090;
 
+process.on('message', (message) => {
+  console.log('Worker', process.pid, 'received message from parent:', message);
+});
+
+// process.send('NOOOOOOOO');
+
 server.route('get', '/', (req, res) => {
   res.json({ message: 'This is some text.' });
 });
