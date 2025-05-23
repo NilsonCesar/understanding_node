@@ -83,18 +83,28 @@ const getVideoAsset = async (req, res, handleErr) => {
     })
   }
 
-  let file, mimeType;
+  let file, mimeType, filename;
 
   switch (type) {
     case 'thumbnail':
       file = await fs.open('./storage/' + videoId + '/thumbnail.jpg', 'r');
       mimeType = 'image/jpeg';
       break;
+
+    case 'original':
+      file = await fs.open('./storage/' + videoId + '/original.' + video.extension, 'r');
+      mimeType = 'video/' + video.extension;
+      filename = video.name + '.' + video.extension;
   }
 
   try {
     const stat = await file.stat();
     const fileStream = file.createReadStream();
+
+    if (type !== 'thumbnail') {
+      res.setHeader('Content-Disposition', 'attachment; filename=' + filename);
+    }
+
     res.setHeader('Content-Type', mimeType);
     res.setHeader('Content-Lenght', stat.size);
 
