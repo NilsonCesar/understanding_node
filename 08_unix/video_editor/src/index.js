@@ -15,7 +15,7 @@ server.beforeEach(cpeak.serveStatic("./public"));
 server.beforeEach(cpeak.parseJSON);
 
 // For authentication
-server.beforeEach(authenticate);
+// server.beforeEach(authenticate);
 
 // For different routes that need the index.html file
 server.beforeEach(serverIndex);
