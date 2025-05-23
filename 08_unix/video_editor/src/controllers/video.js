@@ -23,7 +23,7 @@ const uploadVideo = async (req, res, handleErr) => {
   const name = path.parse(specifiedFileName).name;
   const videoId = crypto.randomBytes(4).toString("hex");
 
-  const FORMATS_SUPPORTED = ["mov", "mp4"];
+  const FORMATS_SUPPORTED = ["mov", "mp4", 'webm'];
 
   if (FORMATS_SUPPORTED.indexOf(extension) == -1) {
     return handleErr({
