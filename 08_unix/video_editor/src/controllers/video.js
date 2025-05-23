@@ -7,13 +7,11 @@ const DB = require("../DB");
 const FF = require("../../lib/FF");
 
 const getVideos = (req, res, handleErr) => {
-  const name = req.params.get("name");
+  DB.update();
 
-  if (name) {
-    res.json({ message: `Your name is ${name}` });
-  } else {
-    return handleErr({ status: 400, message: "Please specify a name." });
-  }
+  const videos = DB.videos.filter(video => video.userId === req.userId);
+
+  res.status(200).json(videos);
 };
 
 // Upload a video file
@@ -33,7 +31,7 @@ const uploadVideo = async (req, res, handleErr) => {
   }
 
   try {
-    await fs.mkdir(`./storage/${videoId}`);
+    await fs.mkdir(`./storage/${videoId}`, { recursive: true });
     const fullPath = `./storage/${videoId}/original.${extension}`; // the original video path
     const file = await fs.open(fullPath, "w");
     const fileStream = file.createWriteStream();

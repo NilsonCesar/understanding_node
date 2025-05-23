@@ -1,8 +1,8 @@
 const fs = require("node:fs");
 
-const videosPath = "./data/videos";
-const usersPath = "./data/users";
-const sessionsPath = "./data/sessions";
+const videosPath = "../data/videos";
+const usersPath = "../data/users";
+const sessionsPath = "../data/sessions";
 
 class DB {
   constructor() {
