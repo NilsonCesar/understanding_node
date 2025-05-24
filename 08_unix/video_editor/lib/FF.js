@@ -17,7 +17,7 @@ const makeThumbnail = (fullPath, thumbnailPath) => {
       if (code === 0) {
         resolve();
       } else {
-        reject(`FFmpeg existed with this code: ${code}`);
+        reject(`FFmpeg exited with this code: ${code}`);
       }
     });
 
@@ -55,7 +55,7 @@ const getDimensions = (fullPath) => {
           height: Number(dimensions[1]),
         });
       } else {
-        reject(`FFprobe existed with this code: ${code}`);
+        reject(`FFprobe exited with this code: ${code}`);
       }
     });
 
@@ -65,4 +65,22 @@ const getDimensions = (fullPath) => {
   });
 };
 
-module.exports = { makeThumbnail, getDimensions };
+const extractAudio = (originalVideoPath, targetAudioPath) => {
+  return new Promise((resolve, reject) => {
+    const ffmpeg = spawn('ffmpeg', ['-i', originalVideoPath, '-vn', '-c:a', 'copy', targetAudioPath]);
+    
+    ffmpeg.on('close', code => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(`FFmpeg exited with this code: ${code}`);
+      }
+    });
+
+    ffmpeg.on("error", (err) => {
+      reject(err);
+    });
+  })
+}
+
+module.exports = { makeThumbnail, getDimensions, extractAudio };
