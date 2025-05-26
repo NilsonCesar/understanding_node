@@ -83,4 +83,27 @@ const extractAudio = (originalVideoPath, targetAudioPath) => {
   })
 }
 
-module.exports = { makeThumbnail, getDimensions, extractAudio };
+const resize = (originalVideoPath, targetVideoPath, width, height) => {
+  return new Promise((resolve, reject) => {
+    const ffmpeg = spawn('ffmpeg', ['-i', originalVideoPath, '-vf', `scale=${width}:${height}`, '-c:a', 'copy', targetAudioPath]);
+
+    ffmpeg.on('close', code => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(`FFmpeg exited with this code: ${code}`);
+      }
+    });
+
+    ffmpeg.on("error", (err) => {
+      reject(err);
+    });
+  });
+}
+
+module.exports = {
+  makeThumbnail,
+  getDimensions,
+  extractAudio,
+  resize
+};
