@@ -85,7 +85,7 @@ const extractAudio = (originalVideoPath, targetAudioPath) => {
 
 const resize = (originalVideoPath, targetVideoPath, width, height) => {
   return new Promise((resolve, reject) => {
-    const ffmpeg = spawn('ffmpeg', ['-i', originalVideoPath, '-vf', `scale=${width}:${height}`, '-c:a', 'copy', targetAudioPath]);
+    const ffmpeg = spawn('ffmpeg', ['-i', originalVideoPath, '-vf', `scale=${width}:${height}`, '-c:a', 'copy', targetVideoPath]);
 
     ffmpeg.on('close', code => {
       if (code === 0) {
