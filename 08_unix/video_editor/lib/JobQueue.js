@@ -6,6 +6,21 @@ class JobQueue {
     constructor() {
         this.jobs = [];
         this.currentJob = undefined;
+
+        DB.update();
+        DB.videos.forEach(video => {
+            Object.keys(video.resizes).forEach(key => {
+                if (video.resizes[key].processing) {
+                    const [width, height] = key.split('x');
+                    this.enqueue({
+                        type: 'resize',
+                        videoId: video.videoId,
+                        width,
+                        height
+                    });
+                }
+            });
+        });
     }
 
     enqueue(job) {
