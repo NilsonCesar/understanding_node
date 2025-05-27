@@ -46,6 +46,7 @@ class JobQueue {
             const video = DB.videos.find(video => video.videoId === videoId);
 
             video.resizes[`${width}x${height}`]= { processing : true };
+            DB.save();
 
             const originalVideoPath = `./storage/${video.videoId}/original.${video.extension}`;
             const targetVideoPath = `./storage/${video.videoId}/${width}x${height}.${video.extension}`;
@@ -67,7 +68,7 @@ class JobQueue {
 
             } catch (e) {
                 util.deleteFile(targetVideoPath);
-                return handleErr(e);
+                return e;
             } 
         }
 
