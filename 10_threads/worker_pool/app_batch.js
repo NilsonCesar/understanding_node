@@ -1,0 +1,51 @@
+const Pool = require('./pool.js');
+const { performance } = require('perf_hooks');
+
+const numWorkers = 4;
+const pool = new Pool(numWorkers);
+const totalTasks = 2000;
+const batchSize = 1000;
+let batchIndex = 0;
+let result = [];
+let tasksDone = 0;
+
+const start = performance.now();
+
+const submitBatch = (startIndex, endIndex) => {
+    let batchTaskCount = 0;
+
+    for (let i = startIndex; i < endIndex; i++) {
+        batchTaskCount++;
+        pool.submit('generatePrimes', {
+            count: 200,
+            start: 1_000_000,
+            format: true,
+            log: false
+        }, (primes) => {
+            console.log(performance.eventLoopUtilization());
+            result = result.concat(primes);
+            tasksDone++;
+            batchTaskCount--;
+
+            if (tasksDone === totalTasks) {
+                console.log(`Time taken: ${performance.now() - start}`);
+                console.log(result);
+                process.exit(0);
+            }
+
+            if (batchTaskCount === 0) {
+                batchIndex++;
+                submitNextBatch();
+            }
+        });
+    }
+}
+
+const submitNextBatch = () => {
+    if (batchIndex * batchSize >= totalTasks) return;
+    const startIndex = batchIndex * batchSize;
+    const endIndex = Math.min((batchIndex + 1) * batchSize, totalTasks);
+    submitBatch(startIndex, endIndex);
+}
+
+submitNextBatch();
