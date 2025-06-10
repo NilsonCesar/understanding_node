@@ -3,7 +3,7 @@ const { performance } = require('perf_hooks');
 
 const numWorkers = 4;
 const pool = new Pool(numWorkers);
-const totalTasks = 2000;
+const totalTasks = 20;
 const batchSize = 1000;
 let batchIndex = 0;
 let result = [];
@@ -16,28 +16,49 @@ const submitBatch = (startIndex, endIndex) => {
 
     for (let i = startIndex; i < endIndex; i++) {
         batchTaskCount++;
-        pool.submit('generatePrimes', {
-            count: 200,
-            start: 1_000_000,
-            format: true,
-            log: false
-        }, (primes) => {
-            console.log(performance.eventLoopUtilization());
-            result = result.concat(primes);
-            tasksDone++;
-            batchTaskCount--;
+        if (i % 2 === 0) {
+            pool.submit('factorial', {
+                n: i
+            }, (factorial) => {
+                console.log(performance.eventLoopUtilization());
+                tasksDone++;
+                batchTaskCount--;
 
-            if (tasksDone === totalTasks) {
-                console.log(`Time taken: ${performance.now() - start}`);
-                console.log(result);
-                process.exit(0);
-            }
+                console.log(factorial);
+                if (tasksDone === totalTasks) {
+                    console.log(`Time taken: ${performance.now() - start}`);
+                    process.exit(0);
+                }
 
-            if (batchTaskCount === 0) {
-                batchIndex++;
-                submitNextBatch();
-            }
-        });
+                if (batchTaskCount === 0) {
+                    batchIndex++;
+                    submitNextBatch();
+                }
+            });
+        } else {
+            pool.submit('generatePrimes', {
+                count: 200,
+                start: 1_000_000,
+                format: true,
+                log: false
+            }, (primes) => {
+                console.log(performance.eventLoopUtilization());
+                result = result.concat(primes);
+                tasksDone++;
+                batchTaskCount--;
+
+                if (tasksDone === totalTasks) {
+                    console.log(`Time taken: ${performance.now() - start}`);
+                    console.log(result);
+                    process.exit(0);
+                }
+
+                if (batchTaskCount === 0) {
+                    batchIndex++;
+                    submitNextBatch();
+                }
+            });
+        }
     }
 }
 
