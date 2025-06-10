@@ -16,6 +16,7 @@ for (let i = 0; i < totalTasks; i++) {
         format: true,
         log: false
     }, (primes) => {
+        console.log(performance.eventLoopUtilization());
         result = result.concat(primes);
         tasksDone++;
 
