@@ -1,0 +1,16 @@
+{
+  "name": "node-cpu-intensive",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "gypfile": true,
+  "scripts": {
+    "start": "node-gyp build && node src/app.js",
+    "config": "node-gyp configure",
+    "build": "node-gyp build"
+  },
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^8.1.0"
+  }
+}
